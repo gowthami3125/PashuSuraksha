@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0F2F5C;
+  --color-primary-hover: #0B2447;
+  --color-secondary-teal: #0F766E;
+  --color-header-footer: #0F2F5C;
+  --color-bg-page: #F3F4F6;
+  --color-bg-card: #FFFFFF;
+  --color-bg-section: #F3F4F6;
+  --color-text: #111827;
+  --color-text-muted: #4B5563;
+  --color-border: #D1D5DB;
+  --color-warning: #D97706;
+  --color-risk-low: #15803D;
+  --color-risk-medium: #D97706;
+  --color-risk-high: #DC2626;
+}
+
+@layer base {
+  body {
+    font-family: 'Noto Sans', 'Noto Sans Devanagari', 'Noto Sans Telugu', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-bg-page);
+    color: var(--color-text);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans', 'Noto Sans Devanagari', 'Noto Sans Telugu', system-ui, sans-serif;
+    color: var(--color-text);
+  }
+}
+
+/* Flat Card Styling: 1px grey border (#D1D5DB), small radius (6-8px), no heavy shadow */
+.gov-card {
+  background-color: #FFFFFF;
+  border: 1px solid #D1D5DB;
+  border-radius: 0.5rem;
+  box-shadow: none;
+}
+
+.gov-card-hover {
+  transition: border-color 0.15s ease-in-out;
+}
+.gov-card-hover:hover {
+  border-color: #0F2F5C;
+}
+
+/* Section Container Styling: light clean surface (#F3F4F6) */
+.gov-section {
+  background-color: #F3F4F6;
+  border: 1px solid #D1D5DB;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+}
+
+/* Navy Primary Button Styling */
+.btn-navy,
+.btn-primary {
+  background-color: #0F2F5C;
+  color: #FFFFFF;
+  border: 1px solid #0F2F5C;
+  border-radius: 0.5rem;
+  font-weight: 700;
+  transition: background-color 0.15s ease-in-out;
+}
+.btn-navy:hover,
+.btn-primary:hover {
+  background-color: #0B2447;
+  border-color: #0B2447;
+}
+
+/* Custom Neutral Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F3F4F6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0F2F5C;
+}
+
+/* Print stylesheet */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, nav, button {
+    display: none !important;
+  }
+  .print-card {
+    border: 2px solid #000 !important;
+    box-shadow: none !important;
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Accessibility Text Size Scaling (A- / A / A+) */
+html.text-size-sm, .app-text-sm {
+  font-size: 88%;
+}
+html.text-size-md, .app-text-md {
+  font-size: 100%;
+}
+html.text-size-lg, .app-text-lg {
+  font-size: 114%;
+}
+
+/* Fine-tuned proportional scaling for fixed pixel and rem helpers */
+html.text-size-sm .text-\[9px\] { font-size: 8px !important; }
+html.text-size-sm .text-\[10px\] { font-size: 9px !important; }
+html.text-size-sm .text-\[11px\] { font-size: 9.75px !important; }
+html.text-size-sm .text-xs { font-size: 0.72rem !important; }
+html.text-size-sm .text-sm { font-size: 0.82rem !important; }
+html.text-size-sm .text-base { font-size: 0.94rem !important; }
+
+html.text-size-lg .text-\[9px\] { font-size: 10.5px !important; }
+html.text-size-lg .text-\[10px\] { font-size: 11.75px !important; }
+html.text-size-lg .text-\[11px\] { font-size: 12.75px !important; }
+html.text-size-lg .text-xs { font-size: 0.85rem !important; }
+html.text-size-lg .text-sm { font-size: 0.98rem !important; }
+html.text-size-lg .text-base { font-size: 1.12rem !important; }
+html.text-size-lg .text-lg { font-size: 1.25rem !important; }
+html.text-size-lg .text-xl { font-size: 1.4rem !important; }
+html.text-size-lg .text-2xl { font-size: 1.7rem !important; }
+
+/* Fluid text scaling safeguards: prevent text overflow or clipping */
+html.text-size-sm,
+html.text-size-md,
+html.text-size-lg {
+  transition: font-size 0.15s ease-in-out;
+}
+
+html.text-size-lg button,
+html.text-size-lg input,
+html.text-size-lg select,
+html.text-size-lg textarea {
+  line-height: 1.35;
+}
+

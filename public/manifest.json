@@ -1,0 +1,32 @@
+{
+  "name": "PashuSuraksha - Livestock Health & Surveillance",
+  "short_name": "PashuSuraksha",
+  "description": "Multilingual livestock health pre-triage, disease forewarning, and biosecurity surveillance portal.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3F4F6",
+  "theme_color": "#0F2F5C",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["medical", "productivity", "utilities"],
+  "lang": "en",
+  "dir": "ltr"
+}

@@ -1,0 +1,41 @@
+services:
+  # PashuSuraksha Backend API & Socket.io WebRTC Hub
+  - type: web
+    name: pashusuraksha-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OTP_MODE
+        value: mock
+      - key: DEMO_MODE
+        value: true
+      - key: FRONTEND_URL
+        value: https://pashusuraksha.vercel.app
+      - key: ALLOWED_ORIGINS
+        value: https://pashusuraksha.vercel.app,http://localhost:5173
+
+  # PashuSuraksha Frontend Client (Static Site on Render if preferred over Vercel)
+  - type: web
+    name: pashusuraksha-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: pashusuraksha-backend
+          property: host
